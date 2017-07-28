@@ -16,8 +16,12 @@ defmodule SoftwareSuperlative.Router do
   scope "/", SoftwareSuperlative do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", SuperlativeController, :index
+    
     get "/hello", HelloController, :index
+    get "/hello/:dude", HelloController, :show
+
+    get "/software_superlative", SuperlativeController, :index
   end
 
   # Other scopes may use custom stacks.
